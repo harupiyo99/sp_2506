@@ -60,7 +60,7 @@ async function sendBatchData() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        const result = await response.json();
+        const result = await response.json() as { count: number; results: any[] };
         console.log('✅ バッチ処理完了');
         console.log('📊 処理されたアイテム数:', result.count);
         console.log('🔐 結果:', result.results);
